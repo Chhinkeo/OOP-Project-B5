@@ -1,6 +1,6 @@
 export class BoardingPass {
-    private code: string;
-    constructor(code: string) {
-        this.code = code;
+    private id: string;
+    constructor(id: string) {
+        this.id = id;
     }
 }
