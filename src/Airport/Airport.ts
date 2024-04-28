@@ -1,10 +1,10 @@
 export class Airport{
-    private airportID: string
-    private airportName: string
-    private gates: string
-    constructor(airportID: string, airportName: string, gates: string){
-        this.airportID = airportID;
+    private airportName: string;
+    private airportID: string;
+    private airtgate: string;
+    constructor(airportName: string, airportID: string, airtgate: string){
         this.airportName = airportName;
-        this.gates = gates;
+        this.airportID = airportID;
+        this.airtgate = airtgate;
     }
 }
