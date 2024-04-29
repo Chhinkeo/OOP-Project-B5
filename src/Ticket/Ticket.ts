@@ -1,10 +1,10 @@
 export class Ticket {
-    private id: number;
+    private ticketId: number;
     private fareBasis: string;
     private mealType: string;
     private seatNumber: string;
     constructor(id: number, fareBasis:string , mealType:string, seatNumber:string){
-        this.id = id;
+        this.ticketId = id;
         this.fareBasis = fareBasis;
         this.mealType = mealType;
         this.seatNumber = seatNumber;
@@ -12,7 +12,7 @@ export class Ticket {
 
     ticketDetails(): void {
         console.log("Ticket Details:");
-        console.log("ID:", this.id);
+        console.log("ID:", this.ticketId);
         console.log("Fare Basis:", this.fareBasis);
         console.log("Meal Type:", this.mealType);
         console.log("Seat Number:", this.seatNumber);
