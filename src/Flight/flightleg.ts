@@ -5,4 +5,10 @@ export class FlightLeg {
         this.flightNumber = flightNumber;
         this.flightName = flightName;
     }
+    getFlightNumber() {
+        return this.flightNumber;
+    }
+    getFlightName() {
+        return this.flightName;
+    }
 }
