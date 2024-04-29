@@ -12,7 +12,7 @@ export class Ticket {
 
     ticketDetails(): void {
         console.log("Ticket Details:");
-        console.log("ID:", this.ticketId);
+        console.log("Ticket Id:", this.ticketId);
         console.log("Fare Basis:", this.fareBasis);
         console.log("Meal Type:", this.mealType);
         console.log("Seat Number:", this.seatNumber);
