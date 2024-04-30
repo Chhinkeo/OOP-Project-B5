@@ -5,4 +5,4 @@ export class MeaType {
         this.mealType = mealType;
         this.passengerPreferences = passengerPreferences;
     }
-}
+} 

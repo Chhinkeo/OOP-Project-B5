@@ -1,10 +1,12 @@
+import { Seat } from "../Airport/Plane/Seat/Seat";
+
 export class Ticket {
     private ticketId: number;
     private fareBasis: string;
     private mealType: string;
     private seatNumber: string;
-    constructor(id: number, fareBasis:string , mealType:string, seatNumber:string){
-        this.ticketId = id;
+    constructor(ticketId: number, fareBasis:string , mealType:string, seatNumber:string){
+        this.ticketId = ticketId;
         this.fareBasis = fareBasis;
         this.mealType = mealType;
         this.seatNumber = seatNumber;
