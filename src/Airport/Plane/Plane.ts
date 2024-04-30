@@ -1,18 +1,17 @@
-import { Seat } from "./Seat/Seat";
+import { TypeSeat } from "./Seat/Seat";
 import { Route } from "../Route/Route";
 
 export class Plane {
     private planeID: string;
     private planeName: string;
-    public seats: Seat[];
-    public route: Route; // Add Route property
+    public seats: TypeSeat[];
+    public route: Route;
 
-    constructor(planeID: string, planeName: string, seats: Seat[], route: Route) {
+    constructor(planeID: string, planeName: string, seats: TypeSeat[], route: Route) {
         this.planeID = planeID;
         this.planeName = planeName;
         this.seats = seats;
         this.route = route;
-        this.numberSeats();
     }
 
     public getPlaneID(): string {
@@ -27,34 +26,46 @@ export class Plane {
         return this.route;
     }
 
-    private numberSeats(): void {
-        if (this.seats) {
-            this.seats.forEach((seat, index) => {
-                seat.setSeatNumber(index + 1);
-            });
+    public getSeatTypes(): string[] {
+        return this.seats.map(seat => seat.toString());
+    }
+
+    public generateSeatNumbers(seatType: TypeSeat): string[] {
+        const prefix = seatType.substring(0, 1).toUpperCase();
+        const seatNumbers: string[] = [];
+        for (let i = 1; i <= 10; i++) {
+            seatNumbers.push(`${prefix}${i}`);
         }
+        return seatNumbers;
     }
 }
 
-// Define some seats
-const seats: Seat[] = [];
-for (let i = 0; i < 10; i++) {
-    seats.push(new Seat());
-}
+const seats: TypeSeat[] = [
+    TypeSeat.bussinessSeat,
+    TypeSeat.classicSeat,
+    TypeSeat.flexSeat
+];
 
-// Create a route
-const route = new Route(1, "FL123");
+const route1 = new Route(1, "FL123");
+const route2 = new Route(2, "FL007");
 
-// Create a plane with the route
-const plane = new Plane("ABC123", "Boeing 737", seats, route);
+const plane1 = new Plane("ABC123", "Boeing 737", seats, route1);
+const plane2 = new Plane("ABC124", "Polo 168", seats, route2);
 
-// Retrieve plane information including the route
-console.log("Plane ID:", plane.getPlaneID());
-console.log("Plane Name:", plane.getPlaneName());
-console.log("Route Number:", plane.getRoute().getRouteNumber());
-console.log("Flight Number:", plane.getRoute().getFlightNumber());
+console.log("Plane ID:", plane1.getPlaneID());
+plane1.seats.forEach(seatType => {
+    console.log("Seat Type:", seatType);
+    console.log("Seat Numbers:");
+    plane1.generateSeatNumbers(seatType).forEach(seatNumber => {
+        console.log("\t", seatNumber);
+    });
+});
 
-// Assuming Seat class has a method getSeatNumber()
-plane.seats.forEach(seat => {
-    console.log("Seat Number:", seat.getSeatNumber());
+console.log("Plane ID:", plane2.getPlaneID());
+plane2.seats.forEach(seatType => {
+    console.log("Seat Type:", seatType);
+    console.log("Seat Numbers:");
+    plane2.generateSeatNumbers(seatType).forEach(seatNumber => {
+        console.log("\t", seatNumber);
+    });
 });
