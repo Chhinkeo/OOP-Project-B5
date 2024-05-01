@@ -1,5 +1,8 @@
 export enum Seat {
-    classicSeat =  "Classic",
+    classicSeat = "Classic",
     flexSeat = "Flex",
     bussinessSeat = "Bussiness",
+    Business = "Business",
+    Flex = "Flex",
+    Classic = "Classic"
 }
