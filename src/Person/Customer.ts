@@ -1,6 +1,6 @@
 import { Person } from "./Person";
 import { Ticket } from "../Ticket/Ticket";
-
+import { Seat } from "../Airport/Plane/Seat/Seat";
 
 class Customer extends Person {
     private customerId: string;
@@ -15,17 +15,20 @@ class Customer extends Person {
     }
 
     buyTicket(ticket: Ticket) {
-        console.log("Ticket bought by"  + ": "+ this.getPersonName());
-        ticket.ticketDetails();
+        const ticketDetails = ticket.getTicketDetails();
+        console.log("Ticket bought by " + this.getPersonName());
+        console.log("Ticket details:");
+        console.log("Ticket ID:", ticketDetails.ticketId);
+        console.log("Fare Basis:", ticketDetails.fareBasis);
+        console.log("Meal Type:", ticketDetails.mealType);
+        console.log("Seat Number:", ticketDetails.seatNumber);
+        console.log("Price:", ticketDetails.price);
         console.log("Refundable:", ticket.canRefund() ? "Yes" : "No");
     }
 }
 
-const customer1 = new Customer(1, "John Doe", "123 Main St", "john@example.com", 1234567890, "CUST123");
-const customer2 = new Customer(2, "keo", "124 Main St", "keo@example.com", 1234567890, "CUST124");
-const customer3 = new Customer(3, "hi", "125 Main St", "hi@example.com", 1234567890, "CUST125");
-const ticket = new Ticket(3, "Business", "Non-Vegetarian", "10F");
+const customer1 = new Customer(1, "KEO", "123 Main St", "keo@example.com", 1234567890, "CUST123");
 
-customer1.buyTicket(ticket);
-customer2.buyTicket(ticket);
-customer3.buyTicket(ticket);
+const ticket1 = new Ticket(12345, "Flex", "Vegetarian", "12A", Seat.Flex, 400);
+
+customer1.buyTicket(ticket1);
