@@ -1,3 +1,5 @@
+import { Person } from "../Person";
+
 class FlyAttandent extends Person{
     private licenseNumber: string;
     

@@ -1,3 +1,5 @@
+import { Person } from "../Person";
+
 class Chef extends Person{
     private licenseNumber: string;
     

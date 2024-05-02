@@ -1,4 +1,4 @@
-abstract class Person{
+export abstract class Person{
     private personId: number;
     private personName: string;
     private personAddress: string;
