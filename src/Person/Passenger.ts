@@ -1,3 +1,5 @@
+import { Person } from "./Person";
+
 class Passenger extends Person {
     private passengerId: string; 
 
