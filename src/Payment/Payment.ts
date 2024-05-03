@@ -1,4 +1,6 @@
 import { Ticket } from "../Ticket/Ticket";
+import { MealType } from "../Meal/MealType";
+import { Seat } from "../Airport/Plane/Seat/Seat";
 
 export class Payment {
     private paymentId: number;
@@ -12,7 +14,6 @@ export class Payment {
     }
 
     calculateTotalAmount(): string {
-
         return this.amount;
     }
 
@@ -38,11 +39,22 @@ export class Payment {
     setTicket(newTicket: Ticket | null) {
         this.ticket = newTicket;
     }
+
+    addMeal(meal: MealType): void {
+        if (this.ticket) {
+            this.ticket.setMeal(meal);
+        }
+    }
+
 }
 
-const ticket1 = new Ticket(1, "Economy Classic", "Vegetarian", "23A");
+
+const seatNumber = "12A";
+
+const ticket1 = new Ticket(1, "Economy Classic", MealType.Vegetarian, seatNumber, Seat.Flex, 500); // Assuming Seat.Flex is chosen
+
 const payment = new Payment(1, "50.00$", ticket1);
 
 console.log("Ticket:", ticket1);
 console.log("Payment ID:", payment.getPaymentId());
-console.log("Total Amount:", payment.calculateTotalAmount());
+console.log("Total Amount:", payment.calculateTotalAmount()); 

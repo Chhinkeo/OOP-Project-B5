@@ -1,6 +1,10 @@
 import { Seat } from "../Airport/Plane/Seat/Seat";
+import { MealType } from "../Meal/MealType";
 
 export class Ticket {
+    setMeal(meal: MealType) {
+        throw new Error("Method not implemented.");
+    }
     private ticketId: number;
     private fareBasis: string;
     private mealType: string;
@@ -40,4 +44,6 @@ export class Ticket {
             seatType: this.seatType
         };
     }
+
+    
 }

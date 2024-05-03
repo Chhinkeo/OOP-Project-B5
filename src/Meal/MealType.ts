@@ -1,8 +1,11 @@
-export class MeaType {
-    private mealType: string;
-    private passengerPreferences: string
-    constructor(mealType: string, passengerPreferences: string) {
-        this.mealType = mealType;
-        this.passengerPreferences = passengerPreferences;
-    }
-} 
+export enum MealType {
+    Standard = "Standard",
+    Vegetarian = "Vegetarian",
+    Vegan = "Vegan",
+    GlutenFree = "Gluten-Free",
+    Kosher = "Kosher",
+    Halal = "Halal",
+
+  }
+  
+  
