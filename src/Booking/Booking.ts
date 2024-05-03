@@ -11,4 +11,5 @@ export class Booking {
         this.price = price;
     }
     
+    
 }
